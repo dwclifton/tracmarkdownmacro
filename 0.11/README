@@ -1,0 +1,69 @@
+= !MarkdownMacro =
+
+== Description ==
+
+The !MarkdownMacro package implements John Gruber's Markdown wiki markup syntax as a
+Trac [WikiProcessors WikiProcessor] macro.
+
+== Installation ==
+
+First you need to install [http://www.freewisdom.org/projects/python-markdown/ Python Markdown].
+Follow the instructions on the Web site.
+
+Then download the attached [zipfile], unpack to a temporary location, visit the `0.11` directory
+and run:
+
+{{{
+python setup.py bdist_egg
+cp dist/*.egg /trac/env/Project/plugins
+}}}
+
+== Configuration ==
+
+Enable the macro in:
+
+/trac/env/Project/conf/trac.ini:
+
+{{{
+[components]
+Markdown.* = enabled
+}}}
+
+You may have to restart your Web server.
+
+== Examples ==
+
+{{{
+{{{
+#!Markdown
+
+# RGB
+
++ Red
++ Green
++ Blue
+
+## Source Code
+
+    from trac.core import *
+    from trac.wiki.macros import WikiMacroBase
+    from trac.wiki.formatter import Formatter
+
+An example [link](http://example.com/ "With a Title").
+}}}
+}}}
+
+== See Also ==
+
+ * John Gruber's [http://daringfireball.net/projects/markdown/ Markdown]
+ * [http://www.freewisdom.org/projects/python-markdown/ Python Markdown]
+ * [http://trac-hacks.org/attachment/ticket/353/Markdown.py Markdown.py] by Alex Mizrahi aka killer_storm 
+ * [http://daringfireball.net/projects/markdown/syntax Markdown syntax]
+
+== Source ==
+
+ * Browse the source at: [http://github.com/dwclifton/tracmarkdownmacro/tree/master GitHub].
+ * Public clone URL:
+{{{
+git clone git://github.com/dwclifton/tracmarkdownmacro.git
+}}}
