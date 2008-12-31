@@ -2,8 +2,8 @@
 
 == Description ==
 
-The !MarkdownMacro package implements John Gruber's Markdown wiki markup syntax as a
-Trac [WikiProcessors WikiProcessor] macro.
+The !MarkdownMacro package implements John Gruber's [http://daringfireball.net/projects/markdown/ Markdown]
+lightweight plain text-to-HTML formatting syntax as a Trac [WikiProcessors WikiProcessor] macro.
 
 == Installation ==
 
