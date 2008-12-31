@@ -10,17 +10,17 @@
 
     @author Douglas Clifton <dwclifton@gmail.com>
     @date December, 2008
-    @version 0.11.0
+    @version 0.11.1
 """
 
 from trac.core import *
 from trac.wiki.macros import WikiMacroBase
-from trac.wiki.formatter import Formatter
+from trac.wiki.formatter import Formatter, system_message
+
+from genshi.builder import tag
 
 from re import sub, compile, search, I
 from StringIO import StringIO
-
-from markdown import markdown
 
 # links, autolinks, and reference-style links
 
@@ -55,4 +55,10 @@ class MarkdownMacro(WikiMacroBase):
                pre += abs
             return pre + str(url) + suf
             
-        return markdown(sub(LINK, convert, content))
+        try:
+            from markdown import markdown
+            return markdown(sub(LINK, convert, content))
+        except ImportError:
+            msg = 'Error importing Python Markdown, install it from '
+            url = 'http://www.freewisdom.org/projects/python-markdown/'
+            return system_message(tag(msg, tag.a('here', href="%s" % url), '.'))

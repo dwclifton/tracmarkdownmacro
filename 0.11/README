@@ -3,14 +3,17 @@
 == Description ==
 
 The !MarkdownMacro package implements John Gruber's [http://daringfireball.net/projects/markdown/ Markdown]
-lightweight plain text-to-HTML formatting syntax as a Trac [WikiProcessors WikiProcessor] macro.
+lightweight plain text-to-HTML formatting syntax as a [WikiProcessors WikiProcessor] macro. The original
+code is courtesy of Alex Mizrahi aka [#SeeAlso killer_storm]. I simply added a little robustness to the error 
+checking, documented the package, created setup.py and this README, and registered it with
+[http://trac-hacks.org/wiki/MarkdownMacro Trac Hacks].
 
 == Installation ==
 
 First you need to install [http://www.freewisdom.org/projects/python-markdown/ Python Markdown].
 Follow the instructions on the Web site.
 
-Then download the attached [zipfile], unpack to a temporary location, visit the `0.11` directory
+Then download the attached [zipfile], unpack it to a temporary location, visit the `0.11` directory
 and run:
 
 {{{
